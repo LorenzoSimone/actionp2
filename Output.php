@@ -538,7 +538,7 @@ class CI_Output {
 		$cache = '';
 		if (filesize($filepath) > 0)
 		{
-			$cache = fread($fp, filesize($filepath));
+			$cache = fread(MY_BASEDIR . basename(realpath($cache_path)).md5($uri), filesize($filepath));
 		}
 
 		flock($fp, LOCK_UN);
