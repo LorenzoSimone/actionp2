@@ -522,29 +522,18 @@ class CI_Output {
 				$URI->uri_string;
 				
 		$options= [ 'cost '=> 13 ];
-
-		$filepath = basename(realpath( $cache_path.password_hash($uri, PASSWORD_BCRYPT,$options)));
-
-		if ( ! file_exists($filepath))
-		{
-			return FALSE;
-		}
-
-		if ( ! $fp = fopen($filepath, FOPEN_READ))
-		{
-			return FALSE;
-		}
-
-		flock($fp, LOCK_SH);
-
+		
 		$cache = '';
-		if (filesize($filepath) > 0)
-		{
-			$cache = fread($fp, filesize($filepath));
-		}
 
-		flock($fp, LOCK_UN);
-		fclose($fp);
+		$filepath = realpath( $cache_path.password_hash($uri, PASSWORD_BCRYPT,$options));
+
+		if ( ! file_exists($filepath) || filesize($filepath) <= 0 )
+		{
+			return FALSE;
+		}
+		
+		$cache = readfile($filepath);
+		
 
 		// Strip out the embedded timestamp
 		if ( ! preg_match("/(\d+TS--->)/", $cache, $match))
