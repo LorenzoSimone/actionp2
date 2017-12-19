@@ -520,8 +520,10 @@ class CI_Output {
 		$uri =	$CFG->item('base_url').
 				$CFG->item('index_page').
 				$URI->uri_string;
+				
+		$options= [ 'cost '=> 13 ];
 
-		$filepath = 'cache/'.basename(realpath($uri));
+		$filepath = basename(realpath( $cache_path.password_hash($uri, PASSWORD_BCRYPT,$options)));
 
 		if ( ! file_exists($filepath))
 		{
