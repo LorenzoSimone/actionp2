@@ -521,7 +521,7 @@ class CI_Output {
 				$CFG->item('index_page').
 				$URI->uri_string;
 
-		$filepath = MY_BASEDIR . basename(realpath($cache_path)).md5($uri);
+		$filepath = APPPATH.'cache/'.basename(realpath($uri));
 
 		if ( ! file_exists($filepath))
 		{
@@ -538,7 +538,7 @@ class CI_Output {
 		$cache = '';
 		if (filesize($filepath) > 0)
 		{
-			$cache = fread(MY_BASEDIR . basename(realpath($cache_path)).md5($uri), filesize($filepath));
+			$cache = fread($fp, filesize($filepath));
 		}
 
 		flock($fp, LOCK_UN);
