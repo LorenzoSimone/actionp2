@@ -521,7 +521,7 @@ class CI_Output {
 				$CFG->item('index_page').
 				$URI->uri_string;
 
-		$filepath = APPPATH.'cache/'.basename(realpath($uri));
+		$filepath = 'cache/'.basename(realpath($uri));
 
 		if ( ! file_exists($filepath))
 		{
