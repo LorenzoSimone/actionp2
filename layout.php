@@ -17,21 +17,14 @@
  */
 class Layout {
 
-	private $CI;
-	protected $C;
-
-	public function __construct()
+	
+	public function render($data = array())
 	{
-		$this->CI =& get_instance();
-		$this->$C=this->$CI;
-		echo '$C';
-		
-	}
-
-	public function render($part, $data = array())
-	{
-		$data['part_name'] = $part;
-		$this->CI->load->view('layout', $data); 
+		$data['page_title'] = 'Your title';
+		$this->load->view('header');
+		$this->load->view('menu');
+		$this->load->view('content', $data);
+		$this->load->view('footer');
 	}
 
 }
