@@ -17,12 +17,11 @@
  */
 class Mylayout {
 
-    protected $CI;
+    private $CI = & get_instance();
 
-    public function __construct()
-    {
-        $CI =& get_instance();
-    }
+  
+        
+   
 
     // пути к файлам вида
     public $header = 'header';

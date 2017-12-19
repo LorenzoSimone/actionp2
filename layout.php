@@ -17,17 +17,13 @@
  */
 class Layout {
 
-	protected $CI;
+	private $CI=& get_instance();
 
-	public function __construct()
-	{
-		$CI =& get_instance();
-	}
 
 	public function render($part, $data = array())
 	{
 		$data['part_name'] = $part;
-		$CI->load->view('layout', $data); 
+		$this->CI->load->view('layout', $data); 
 	}
 
 }
