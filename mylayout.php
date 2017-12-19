@@ -17,7 +17,7 @@
  */
 class Mylayout {
 
-    private $CI;
+    protected $CI;
 
     public function __construct()
     {
