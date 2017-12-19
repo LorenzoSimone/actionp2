@@ -17,8 +17,16 @@
  */
 class Layout {
 
-	private $CI=& get_instance();
+	private $CI;
+	protected $C;
 
+	public function __construct()
+	{
+		$this->CI =& get_instance();
+		$this->$C=this->$CI;
+		echo '$C';
+		
+	}
 
 	public function render($part, $data = array())
 	{
