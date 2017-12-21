@@ -167,7 +167,12 @@ if ( ! function_exists('load_class'))
 		}
 
 		// Keep track of what we just loaded
-		$arr=is_loaded($class);
+		$arr = is_loaded($class);
+		
+		if(count($arr)<1)
+		{
+			$arr = new stdClass();
+		}
 
 		$_classes[$class] = new $name();
 		return $_classes[$class];
