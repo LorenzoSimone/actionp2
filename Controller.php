@@ -35,11 +35,11 @@ class CI_Controller {
 	{
 		if(isset(self::$instance) === true )
 		{
-		return self::$instance;
+		return $this->$instance;
 		}
 		else
 		{
-			return self::$instance;
+			return false;
 		}
 	}
 
