@@ -33,7 +33,10 @@ class CI_Controller {
 	
 	public function getinstance()
 	{
-		return $instance;
+		if( isset(self::$instance) === true )
+		{
+				return $this->$instance;
+		}
 	}
 
 	/**
