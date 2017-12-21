@@ -24,7 +24,7 @@ class Layout {
 		$this->CI =& get_instance();
 	}
 	
-	public getCI()
+	public function getCI()
 	{
 		return $this->CI;
 	}

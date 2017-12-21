@@ -31,7 +31,7 @@ class CI_Controller {
 
 	private static $instance;
 	
-	public getinstance()
+	public function getinstance()
 	{
 		return $instance;
 	}
