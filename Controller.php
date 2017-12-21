@@ -29,20 +29,12 @@
  */
 class CI_Controller {
 
-	private static $instance;
+	private $instance;
 	
-	public function getinstance()
+	public function get_instance()
 	{
-		if(isset(self::$instance) === true )
-		{
-		return $this->$instance;
-		}
-		else
-		{
-			return false;
-		}
+			return $this->$instance;
 	}
-
 	/**
 	 * Constructor
 	 */
