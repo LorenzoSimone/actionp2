@@ -1730,11 +1730,11 @@ class CI_DB_active_record extends CI_DB_driver {
 		{
 			foreach ($table as $single_table)
 			{
-				$this->delete($single_table, $where, $limit, false);
+				return $this->delete($single_table, $where, $limit, false);
 			}
 
 			$this->_reset_write();
-			return true;
+			
 		}
 		else
 		{
